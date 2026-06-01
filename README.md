@@ -1,58 +1,23 @@
-AI News Reel Generator
-Automated pipeline that turns any topic into a ready-to-post video reel (TikTok/Instagram).
+# 🎬 AI News Reel Generator
 
-How it works
-Searches latest news via Google (Serper API)
+An automated pipeline using **CrewAI** and **Gemini** to research, script, and generate 1-minute vertical videos.
 
-Writes 1-min script with Gemini AI
+## 📦 Setup & Installation
 
-Downloads background image from Pollinations
-4 Creates video with Spanish voiceover
+1. **Install dependencies:**
+   `pip install crewai crewai_tools python-dotenv requests gTTS moviepy`
 
-Quick start
-bash
-# Install dependencies
-pip install crewai crewai-tools requests gtts moviepy python-dotenv google-generativeai
+2. **Configure environment variables** in a `.env` file:
+   `GEMINI_API_KEY=your_gemini_key`
+   `SERPER_API_KEY=your_serper_key`
 
-# Add your keys to .env
-GEMINI_API_KEY=your_key
-SERPER_API_KEY=your_key
+## 🚀 Usage
 
-# Change topic (optional)
-TEMA_NOTICIA = "Your topic here"
-
-# Run
-python script.py
-Output
-Creates folder: {Topic}_{YYYY-MM-DD}/ with:
-
-guion.txt - the script
-
-reel_final.mp4 - final video
-
-Files
-guion.txt - written script
-
-imagen_fondo.jpg - background image
-
-locucion.mp3 - audio narration
-
-reel_final.mp4 - finished video
-
-Requirements
-Python 3.8+
-
-API keys from Gemini and Serper
-
-Notes
-Scripts are ~130 words (~1 minute in Spanish)
-
-Video is vertical format (1080x1920)
-
-Each task retries 5 times on failure
-
-Common issues
-No search results - check Serper API quota
-Video won't render - reinstall moviepy: pip install --upgrade moviepy
-
-That's it. Run it and you get a video.
+1. Change the `TEMA_NOTICIA` variable in the script to your desired news topic.
+2. Run the script: 
+   `python main.py`
+3. The AI agents will process the task and create a timestamped folder containing:
+   * `guion.txt` (The generated script)
+   * `imagen_fondo.jpg` (The AI background)
+   * `locucion.mp3` (The TTS voiceover)
+   * `reel_final.mp4` (The final rendered video)
